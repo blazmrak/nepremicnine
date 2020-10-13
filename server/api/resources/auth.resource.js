@@ -15,7 +15,14 @@ router.post('/login', async (req, res) => {
         return;
     }
 
-    res.cookie('token', credentials.token).status(200).json(credentials);
+    const token = credentials.token;
+    delete credentials['token'];
+
+    res.cookie('token', token, { httpOnly: true, sameSite: 'Strict' }).status(200).json(credentials);
 });
+
+router.post('/logout', async (req, res) => {
+    res.clearCookie("token").status(200).json({ message: 'Logout successful' });
+})
 
 module.exports = router;

@@ -20,7 +20,10 @@ module.exports.login = async (user) => {
         return null;
     }
 
+    delete registeredUser['password']
+
     return {
-        token: createToken(registeredUser)
+        token: createToken(registeredUser),
+        user: registeredUser
     }
 }
