@@ -6,9 +6,13 @@
   "scripts": {
     "start": "node server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "fe-new": "ng new client",
-    "dev-fe": "ng serve",
-    "dev-be": "nodemon server/app.js"
+    "migrator": "node migrator",
+    "migrate:new": "node migrator new",
+		"migrate:stage": "node migrator generate",
+		"migrate:down": "db-migrate down -c 1",
+		"migrate:up": "db-migrate up -c 1",
+		"migrate:up_all": "db-migrate up",
+		"migrate:gen": "db-migrate create neki --sql-file"
   },
   "repository": {
     "type": "git",
@@ -21,10 +25,14 @@
   },
   "homepage": "https://github.com/blazmrak/nepremicnine#readme",
   "dependencies": {
+    "db-migrate": "^0.11.11",
     "express": "^4.17.1"
   },
   "devDependencies": {
     "@angular/cli": "^10.1.6",
     "nodemon": "^2.0.4"
-  }
+  },
+  "bin": {
+		"migrator": "./migrator/index.js"
+	}
 }
