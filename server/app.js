@@ -1,11 +1,13 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const app = express();
+const port = 3000;
 
-const v1 = require('./api/router');
+require('dotenv').config();
 
-app.use('/v1', v1);
+require('db-migrate').getInstance(true).up();
+
+app.use('/v1', require('./api/router'));
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Example app listening at http://localhost:${port}`);
 })
