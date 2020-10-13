@@ -1,0 +1,20 @@
+<div class="map-container">
+    <agm-map [latitude]="lat" [longitude]="lng">
+        <agm-marker
+            *ngFor="let realestate of realestates, let i= index"
+            [latitude]="realestate.lat"
+            [longitude]="realestate.lng">
+            <agm-info-window>
+                <div>
+                    <strong>{{realestate.address}}</strong>
+                </div>
+                <div>
+                    Capacity: {{ realestate.capacity }}
+                </div>
+                <div>
+                    <a routerLink="/realestates/{{realestate.id}}">Make a reservation</a>
+                </div>
+            </agm-info-window>
+        </agm-marker>
+    </agm-map>
+</div>
