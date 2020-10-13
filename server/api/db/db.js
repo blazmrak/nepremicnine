@@ -10,6 +10,12 @@ const getPool = () => {
 
 module.exports.pool = getPool();
 
+module.exports.one = getPool().one;
+
+module.exports.many = getPool().many;
+
+module.exports.maybeOne = getPool().maybeOne;
+
 module.exports.query = getPool().query;
 
 module.exports.sql = sql;

@@ -3,8 +3,8 @@ const jwt = require('jsonwebtoken');
 
 const createToken = (user) => {
     return jwt.sign({
-        id: registeredUser.id,
-        username: registeredUser.username
+        id: user.id,
+        username: user.username
     }, process.env.TOKEN_SECRET, {
         algorithm: 'HS256',
         expiresIn: 60 * 60,
@@ -13,7 +13,7 @@ const createToken = (user) => {
 
 const createRefreshToken = (user) => {
     return jwt.sign({
-        id: registeredUser.id
+        id: user.id
     }, process.env.REFRESH_SECRET, {
         algorithm: 'HS256'
     });

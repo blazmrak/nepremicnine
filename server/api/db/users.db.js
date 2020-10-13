@@ -4,12 +4,20 @@ module.exports.findAll = () => {
     return db.query(db.sql`SELECT * FROM client`)
 }
 
-module.exports.findById = (id) => {
-    return db.query(db.sql`SELECT * FROM client WHERE id=${id}`)
+module.exports.findById = async (id) => {
+    try {
+        return db.one(db.sql`SELECT * FROM client WHERE id=${id}`);
+    } catch (err) {
+        return null;
+    }
 }
 
 module.exports.findByUsername = (username) => {
-    return db.query(db.sql`SELECT * FROM client WHERE username=${username}`)
+    try {
+        return db.one(db.sql`SELECT * FROM client WHERE username=${username}`);
+    } catch (err) {
+        return null;
+    }
 }
 
 module.exports.insert = (user) => {

@@ -27,6 +27,7 @@
   "homepage": "https://github.com/blazmrak/nepremicnine#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
     "db-migrate": "^0.11.11",
     "db-migrate-pg": "^1.2.2",
     "dotenv": "^8.2.0",
