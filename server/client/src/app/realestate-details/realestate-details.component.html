@@ -1,0 +1,16 @@
+{{ realestate | json }}
+<div>
+    <h1>{{ realestate.address }}</h1>
+    <div>
+        Number of guests: {{ realestate.capacity }}
+    </div>
+    <div>
+        Price: {{ realestate.price }}€
+    </div>
+
+    <form [formGroup]="reservationForm" (ngSubmit)="makeReservation()">
+        <input type="date" formGroupName="from">
+        <input type="date" formGroupName="to">
+        <input type="submit" value="Make the reservation">
+    </form>
+</div>
