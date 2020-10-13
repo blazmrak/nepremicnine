@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,13 +15,28 @@ export class LoginComponent implements OnInit {
     password: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
   public login(): void {
-    console.log('Logged In');
+    if (this.loginForm.valid) {
+      this.auth.login(this.loginForm.value)
+        .then(res => {
+          this.saveUser(res.user);
+          this.router.navigate(['/']);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  }
+
+  private saveUser(user: any): void {
+    localStorage.setItem('id', user.id);
+    localStorage.setItem('username', user.username);
+    localStorage.setItem('role', user.role);
   }
 }
