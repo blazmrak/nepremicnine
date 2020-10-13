@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const login = require('../controllers/login.controller')
+const auth = require('../controllers/auth.controller')
 
 router.post('/login', async (req, res) => {
-    const credentials = await login.login(req.body);
+    const credentials = await auth.login(req.body);
 
     if (!credentials) {
         res.status(401).json({
@@ -15,7 +15,7 @@ router.post('/login', async (req, res) => {
         return;
     }
 
-    res.status(200).json(credentials);
+    res.cookie('token', credentials.token).status(200).json(credentials);
 });
 
 module.exports = router;
