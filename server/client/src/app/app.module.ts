@@ -5,16 +5,28 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+
+import { AgmCoreModule } from '@agm/core';
+import { RealestateDetailsComponent } from './realestate-details/realestate-details.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    RealestateDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyD_x7JDLZHhuxHhVB-G304f3n8jvV23bgw"
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
