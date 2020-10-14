@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const realestate = require('../controllers/realestate.controller')
+const realestate = require('../controllers/realestate.controller');
+
+const auth = require('../middleware/auth');
 
 router.get('/', async (req, res) => {
     const realestates = await realestate.findAll();
@@ -8,7 +10,7 @@ router.get('/', async (req, res) => {
     res.status(200).json(realestates);
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', auth.loggedIn, async (req, res) => {
     const realestates = await realestate.findById(req.params.id);
 
     if (!realestates) {

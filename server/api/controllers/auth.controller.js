@@ -5,7 +5,8 @@ const bcrypt = require('bcrypt');
 const createToken = (user) => {
     return jwt.sign({
         id: user.id,
-        username: user.username
+        username: user.username,
+        role: user.role
     }, process.env.TOKEN_SECRET, {
         algorithm: 'HS256'
     });
