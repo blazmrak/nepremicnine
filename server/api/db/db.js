@@ -28,6 +28,7 @@ module.exports.insert = (table, record) => {
         (${sql.join(identifiers, sql`, `)}) 
         VALUES 
         (${sql.join(Object.values(record), sql`, `)})
+        RETURNING id
     `);
 };
 
