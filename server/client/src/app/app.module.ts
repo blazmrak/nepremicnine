@@ -10,13 +10,15 @@ import { HomeComponent } from './home/home.component';
 
 import { AgmCoreModule } from '@agm/core';
 import { RealestateDetailsComponent } from './realestate-details/realestate-details.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    RealestateDetailsComponent
+    RealestateDetailsComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

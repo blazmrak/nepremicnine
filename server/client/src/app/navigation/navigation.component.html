@@ -1,0 +1,10 @@
+<nav class="navbar">
+    <ul class="routes">
+        <li class="primary-link"><a routerLink="/">Home</a></li>
+        <li *ngIf="user && user.role == 'admin'" class="primary-link"><a routerLink="/reservations">Reservations</a></li>
+    </ul>
+    <ul class="profile">
+        <li *ngIf="!user" class="secondary-link"><a routerLink="/login">Login</a></li>
+        <li *ngIf="user" class="secondary-link"><span style="margin-right: 1em">{{user.username}}</span><span class="btn" (click)="logout()">Logout</span></li>
+    </ul>
+</nav>
