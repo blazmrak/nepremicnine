@@ -11,6 +11,9 @@ import { HomeComponent } from './home/home.component';
 import { AgmCoreModule } from '@agm/core';
 import { RealestateDetailsComponent } from './realestate-details/realestate-details.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { ReservationsComponent } from './reservations/reservations.component';
+import { IsLoggedInGuard } from './guards/IsLoggedInGuard';
+import { IsAdminGuard } from './guards/IsAdminGuard';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     LoginComponent,
     HomeComponent,
     RealestateDetailsComponent,
-    NavigationComponent
+    NavigationComponent,
+    ReservationsComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,10 @@ import { NavigationComponent } from './navigation/navigation.component';
       apiKey: "AIzaSyD_x7JDLZHhuxHhVB-G304f3n8jvV23bgw"
     })
   ],
-  providers: [],
+  providers: [
+    IsLoggedInGuard,
+    IsAdminGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

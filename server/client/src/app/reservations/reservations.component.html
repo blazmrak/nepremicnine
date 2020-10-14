@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Reservations</h1>
+    <table>
+        <tr>
+            <th>Address</th>
+            <th>User</th>
+            <th>From</th>
+            <th>To</th>
+        </tr>
+        <tr *ngFor="let reservation of reservations">
+            <td>{{reservation.address}}</td>
+            <td>{{reservation.username}}</td>
+            <td>{{reservation.date_from | date:'d.M.yyy'}}</td>
+            <td>{{reservation.date_to | date:'d.M.yyy'}}</td>
+        </tr>
+    </table>
+</div>
