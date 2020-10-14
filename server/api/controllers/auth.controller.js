@@ -13,8 +13,16 @@ const createToken = (user) => {
 }
 
 module.exports.login = async (user) => {
+    if(!user.password || !user.username) {
+        return null;
+    }
+
     const registeredUser = await dbUser.findByUsername(user.username);
 
+    if(!registeredUser) {
+        return null;
+    }
+    
     const validPassword = await bcrypt.compare(user.password, registeredUser.password);
 
     if (!validPassword) {

@@ -14,7 +14,7 @@ module.exports.findById = async (id) => {
 
 module.exports.findByUsername = (username) => {
     try {
-        return db.one(db.sql`SELECT * FROM client WHERE username=${username}`);
+        return db.maybeOne(db.sql`SELECT * FROM client WHERE username=${username}`);
     } catch (err) {
         return null;
     }

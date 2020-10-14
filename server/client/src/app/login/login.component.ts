@@ -11,6 +11,8 @@ import { UserService } from '../services/user.service';
 })
 export class LoginComponent {
 
+  public error: string = null;
+
   public loginForm: FormGroup = this.fb.group({
     username: ['', Validators.required],
     password: ['', Validators.required]
@@ -21,13 +23,14 @@ export class LoginComponent {
 
   public login(): void {
     if (this.loginForm.valid) {
+      this.error = null;
       this.auth.login(this.loginForm.value)
         .then(res => {
           this.saveUser(res.user);
           this.router.navigate(['/']);
         })
         .catch(err => {
-          console.log(err);
+          this.error = err.error.error;
         });
     }
   }
