@@ -2,7 +2,7 @@ const reservationDb = require('../db/reservations.db');
 
 module.exports.findAll = async () => {
     const realestates = await reservationDb.findAll();
-
+    
     return realestates.rows;
 }
 
