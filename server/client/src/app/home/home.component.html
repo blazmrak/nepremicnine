@@ -6,12 +6,15 @@
             [longitude]="realestate.lng">
             <agm-info-window>
                 <div>
-                    <strong>{{realestate.address}}</strong>
+                    {{realestate.address}}
                 </div>
                 <div>
                     Capacity: {{ realestate.capacity }}
                 </div>
                 <div>
+                    <strong style="font-weight: 600">Price: {{ realestate.price }}€</strong>
+                </div>
+                <div *ngIf="user">
                     <a routerLink="/realestates/{{realestate.id}}">Make a reservation</a>
                 </div>
             </agm-info-window>
