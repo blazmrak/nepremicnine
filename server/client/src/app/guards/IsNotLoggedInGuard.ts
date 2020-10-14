@@ -4,7 +4,7 @@ import { UserService } from '../services/user.service';
 
 @Injectable()
 export class IsNotLoggedInGuard implements CanActivate {
-  constructor(private userService: UserService, private router: Router) {};
+  constructor(private userService: UserService, private router: Router) {}
 
   canActivate() {
     if (!this.userService.isLoggedIn()) {

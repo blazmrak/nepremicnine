@@ -1,6 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RealestatesService } from '../services/realestates.service';
 import { UserService } from '../services/user.service';
 
 @Component({

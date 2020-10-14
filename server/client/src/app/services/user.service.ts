@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +32,7 @@ class UserObserver {
 
   subscribe(observer) {
     this.subscribers.push(observer);
-    
+
     return {
       unsubscribe: () => {
         this.subscribers = this.subscribers.filter(sub => sub != observer);

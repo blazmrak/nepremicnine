@@ -1,11 +1,11 @@
 <div class="container">
     <h1>Reservations</h1>
-    <table>
+    <table aria-describedby="Reservations overview">
         <tr>
-            <th>Address</th>
-            <th>User</th>
-            <th>From</th>
-            <th>To</th>
+            <th id="address">Address</th>
+            <th id="user">User</th>
+            <th id="from">From</th>
+            <th id="to">To</th>
         </tr>
         <tr *ngFor="let reservation of reservations">
             <td>{{reservation.address}}</td>
