@@ -18,7 +18,7 @@ router.post('/login', async (req, res) => {
     const token = credentials.token;
     delete credentials['token'];
 
-    res.cookie('token', token, { httpOnly: true, sameSite: 'Strict' }).status(200).json(credentials);
+    res.cookie('token', token, { httpOnly: true, sameSite: 'Strict', maxAge: 2147483647 }).status(200).json(credentials);
 });
 
 router.post('/logout', async (req, res) => {
