@@ -4,10 +4,18 @@
     const port = 3000;
     const bodyParser = require('body-parser')
     const cookieParser = require('cookie-parser')
+    const path = require('path')
 
     require('dotenv').config();
 
     require('db-migrate').getInstance(true).up();
+
+    if(process.env.NODE_ENV == 'production') {
+        app.use(express.static(path.join(__dirname, 'client', 'dist', 'client')))
+        app.get('/', (req, res) => {
+            res.sendFile(path.join(__dirname, 'client', 'dist', 'client', 'index.html'));
+        });
+    }
 
     app.use(bodyParser.json());
     app.use(cookieParser());
