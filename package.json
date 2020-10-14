@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd server/client && npm install && npm run build:prod && cd ../.. && node server/app.js",
+    "start": "node server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server/app.js",
     "migrator": "node migrator",
