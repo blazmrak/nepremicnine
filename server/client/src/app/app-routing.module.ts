@@ -10,6 +10,7 @@ import { UserResolver } from './resolvers/user.resolver';
 import { RealestatesResolver } from './resolvers/realestates.resolver';
 import { RealestateDetailsResolver } from './resolvers/realestate-details.resolver';
 import { ReservationsResolver } from './resolvers/reservations.resolver';
+import { IsNotLoggedInGuard } from './guards/IsNotLoggedInGuard';
 
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [IsNotLoggedInGuard]
   },
   {
     path: 'realestates/:id',

@@ -1,5 +1,14 @@
-<form [formGroup]="loginForm" (ngSubmit)="login();">
-    <input type="text" formControlName="username" placeholder="Username">
-    <input type="password" formControlName="password" placeholder="Password">
-    <input type="submit" [disabled]="!loginForm.valid" value="Login">
-</form>
+<div class="container">
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="login();">
+        <div>
+            <input type="text" formControlName="username" placeholder="Username">
+            </div>
+        <div>
+            <input type="password" formControlName="password" placeholder="Password">
+        </div>
+        <div style="margin: 0 auto; text-align: center;">
+            <input type="submit" [disabled]="!loginForm.valid" value="Login">
+        </div>
+    </form>
+</div>

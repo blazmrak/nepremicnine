@@ -13,6 +13,7 @@ import { RealestateDetailsComponent } from './realestate-details/realestate-deta
 import { NavigationComponent } from './navigation/navigation.component';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { IsLoggedInGuard } from './guards/IsLoggedInGuard';
+import { IsNotLoggedInGuard } from './guards/IsNotLoggedInGuard';
 import { IsAdminGuard } from './guards/IsAdminGuard';
 import { UserResolver } from './resolvers/user.resolver';
 import { RealestatesResolver } from './resolvers/realestates.resolver';
@@ -40,6 +41,7 @@ import { ReservationsResolver } from './resolvers/reservations.resolver';
   ],
   providers: [
     IsLoggedInGuard,
+    IsNotLoggedInGuard,
     IsAdminGuard,
     UserResolver,
     RealestatesResolver,
