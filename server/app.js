@@ -12,9 +12,10 @@
     require('db-migrate').getInstance(true).up();
 
     if(process.env.NODE_ENV == 'production') {
-        app.use(express.static(path.join(__dirname, 'client', 'dist', 'client')))
+        const client = path.join(__dirname, 'public', 'client');
+        app.use(express.static(client));
         app.get('/', (req, res) => {
-            res.sendFile(path.join(__dirname, 'public', 'client', 'index.html'));
+            res.sendFile(path.join(client, 'index.html'));
         });
     }
 
