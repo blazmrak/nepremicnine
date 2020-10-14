@@ -34,9 +34,10 @@ export class RealestateDetailsComponent implements OnInit {
   }
 
   public makeReservation(): void {
+    console.log(this.reservationForm.value);
     if (this.reservationForm.valid) {
       const reservation = {
-        realestate_id: this.realestate.id,
+        id_realestate: this.realestate.id,
         from: this.reservationForm.value.from,
         to: this.reservationForm.value.to,
       };

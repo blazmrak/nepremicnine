@@ -9,8 +9,8 @@
     </div>
 
     <form [formGroup]="reservationForm" (ngSubmit)="makeReservation()">
-        <input type="date" formGroupName="from">
-        <input type="date" formGroupName="to">
+        <input type="date" formControlName="from">
+        <input type="date" formControlName="to">
         <input type="submit" value="Make the reservation">
     </form>
 </div>
