@@ -1,6 +1,6 @@
-{{ realestate | json }}
-<div>
+<div class="container">
     <h1>{{ realestate.address }}</h1>
+    <img style="margin-bottom: 1em;" height="500" src="/v1/static/{{realestate.address.split(' ').join('_')}}.jpg" alt="House">
     <div>
         Number of guests: {{ realestate.capacity }}
     </div>
@@ -9,8 +9,12 @@
     </div>
 
     <form [formGroup]="reservationForm" (ngSubmit)="makeReservation()">
-        <input type="date" formControlName="from">
-        <input type="date" formControlName="to">
+        <div>
+            <label>Term: </label>
+            <input type="date" formControlName="from">
+            <label> - </label>
+            <input type="date" formControlName="to">
+        </div>
         <input type="submit" value="Make the reservation">
     </form>
 </div>

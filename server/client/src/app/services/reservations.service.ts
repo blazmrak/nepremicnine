@@ -11,7 +11,7 @@ export class ReservationsService {
   constructor(private http: HttpClient) { }
 
   public getReservations(): Promise<any[]> {
-    return null;
+    return this.http.get<any[]>(this.root).toPromise();
   }
 
   public makeReservation(reservation): Promise<any> {

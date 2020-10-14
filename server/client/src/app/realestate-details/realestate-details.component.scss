@@ -1,0 +1,35 @@
+.container {
+    margin: 0 auto;
+    width: 80%;
+
+    padding-top: 1em;
+
+    h1 {
+        margin-bottom: .5em;
+    }
+}
+
+input[type=submit] {
+    background-color: rgb(67, 185, 67);
+    border-color: rgb(67, 185, 67);
+    box-shadow: none;
+    border: none;
+    border-radius: 100vh;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    color: white;
+}
+
+input[type=date] {
+    border-radius: .3em;
+    box-shadow: none;
+    padding: 0.5em 0.5em;
+}
+
+div {
+    margin-bottom: 1em;
+}
+
+form {
+    margin-top: 1em;
+}
