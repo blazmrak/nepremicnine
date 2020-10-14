@@ -1,4 +1,6 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ReservationsService } from '../services/reservations.service';
 
 @Component({
@@ -6,20 +8,11 @@ import { ReservationsService } from '../services/reservations.service';
   templateUrl: './reservations.component.html',
   styleUrls: ['./reservations.component.scss']
 })
-export class ReservationsComponent implements OnInit {
+export class ReservationsComponent {
 
   public reservations;
 
-  constructor(private reservationsService: ReservationsService) {
-    reservationsService.getReservations().then(res => {
-      this.reservations = res;
-    })
+  constructor(route: ActivatedRoute) {
+      this.reservations = route.snapshot.data.reservations;
   }
-
-  ngOnInit(): void {
-    
-  }
-
-
-
 }

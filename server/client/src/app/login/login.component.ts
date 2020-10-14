@@ -9,7 +9,7 @@ import { UserService } from '../services/user.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   public loginForm: FormGroup = this.fb.group({
     username: ['', Validators.required],
@@ -17,9 +17,6 @@ export class LoginComponent implements OnInit {
   });
 
   constructor(private fb: FormBuilder, private auth: AuthService, private user: UserService, private router: Router) {
-  }
-
-  ngOnInit(): void {
   }
 
   public login(): void {

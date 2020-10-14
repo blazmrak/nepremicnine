@@ -14,6 +14,10 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { IsLoggedInGuard } from './guards/IsLoggedInGuard';
 import { IsAdminGuard } from './guards/IsAdminGuard';
+import { UserResolver } from './resolvers/user.resolver';
+import { RealestatesResolver } from './resolvers/realestates.resolver';
+import { RealestateDetailsResolver } from './resolvers/realestate-details.resolver';
+import { ReservationsResolver } from './resolvers/reservations.resolver';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,11 @@ import { IsAdminGuard } from './guards/IsAdminGuard';
   ],
   providers: [
     IsLoggedInGuard,
-    IsAdminGuard
+    IsAdminGuard,
+    UserResolver,
+    RealestatesResolver,
+    RealestateDetailsResolver,
+    ReservationsResolver
   ],
   bootstrap: [AppComponent]
 })

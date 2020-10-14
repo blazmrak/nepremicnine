@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { RealestatesService } from '../services/realestates.service';
 import { UserService } from '../services/user.service';
 
@@ -7,7 +8,7 @@ import { UserService } from '../services/user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnDestroy {
   public lat: number = 46.050959;
   public lng: number = 14.505292;
 
@@ -15,18 +16,21 @@ export class HomeComponent implements OnInit {
   public user: any;
   public userSubscriber;
 
-  constructor(private realestateService: RealestatesService, private userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    route: ActivatedRoute
+  ) {
+    this.user = route.snapshot.data.user;
+    this.realestates = route.snapshot.data.realestates;
 
-  ngOnInit(): void {
-    this.user = this.userService.userPublisher.getUser();
     this.userSubscriber = this.userService.userPublisher.subscribe({
       next: (user) => {
         this.user = user;
       }
-    })
-    this.realestateService.getRealestates().then(res => {
-      this.realestates = res;
     });
   }
 
+  ngOnDestroy(): void {
+    this.userSubscriber.unsubscribe();
+  }
 }
